@@ -198,4 +198,4 @@ grep MODULES /etc/mkinitcpio.conf
 sudo mkinitcpio -P
 ```
 
-Consulte [nvidia-driver-setup.md](nvidia-driver-setup.md) para o processo completo.
+Consulte [nvidia-driver-setup.md](docs/nvidia-driver-setup.md) para o processo completo.

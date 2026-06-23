@@ -64,46 +64,46 @@ montar um ambiente Hyprland funcional, bonito e bem documentado.
 
 | Documento | Descrição |
 |---|---|
-| [Git](git-setup.md) | Controle de versão e dependência para o AUR |
-| [yay](yay-setup.md) | AUR helper — instalar pacotes comunitários |
+| [Git](docs/git-setup.md) | Controle de versão e dependência para o AUR |
+| [yay](docs/yay-setup.md) | AUR helper — instalar pacotes comunitários |
 
 ### Sistema base
 
 | Documento | Descrição |
 |---|---|
-| [Hyprland](hyprland-setup.md) | Instalação, configuração completa e notas sobre v0.55 |
-| [Driver NVIDIA](nvidia-driver-setup.md) | nvidia-open para RTX 4070, PRIME offloading, parâmetros de kernel |
-| [SDDM](sddm-setup.md) | Display manager com tema Catppuccin Macchiato Blue |
-| [Tema Catppuccin](catppuccin-setup.md) | Unificação visual em todos os componentes |
+| [Hyprland](docs/hyprland-setup.md) | Instalação, configuração completa e notas sobre v0.55 |
+| [Driver NVIDIA](docs/nvidia-driver-setup.md) | nvidia-open para RTX 4070, PRIME offloading, parâmetros de kernel |
+| [SDDM](docs/sddm-setup.md) | Display manager com tema Catppuccin Macchiato Blue |
+| [Tema Catppuccin](docs/catppuccin-setup.md) | Unificação visual em todos os componentes |
 
 ### Desktop e compositor
 
 | Documento | Descrição |
 |---|---|
-| [Waybar](waybar-setup.md) | Barra de status com todos os módulos configurados |
-| [Wallpaper](wallpaper-setup.md) | awww (swww) com autostart completo do Hyprland |
-| [Hyprlock](hyprlock-setup.md) | Bloqueio de tela minimalista, atalho `Super + L` |
-| [hypridle](hypridle-setup.md) | Daemon de inatividade — brilho, lock, display, suspend |
-| [swaync](swaync-setup.md) | Notificações com painel lateral, atalho `Super + N` |
+| [Waybar](docs/waybar-setup.md) | Barra de status com todos os módulos configurados |
+| [Wallpaper](docs/wallpaper-setup.md) | awww (swww) com autostart completo do Hyprland |
+| [Hyprlock](docs/hyprlock-setup.md) | Bloqueio de tela minimalista, atalho `Super + L` |
+| [hypridle](docs/hypridle-setup.md) | Daemon de inatividade — brilho, lock, display, suspend |
+| [swaync](docs/swaync-setup.md) | Notificações com painel lateral, atalho `Super + N` |
 
 ### Aplicativos
 
 | Documento | Descrição |
 |---|---|
-| [Kitty](kitty-setup.md) | Terminal GPU-accelerated, atalho `Super + T` |
-| [Wofi](wofi-setup.md) | App launcher e seletor de clipboard, atalho `Super + R` |
-| [Thunar](thunar-setup.md) | Gerenciador de arquivos, atalho `Super + E` |
-| [Zsh + Starship](zsh-setup.md) | Shell com autocompletar, syntax highlighting e prompt |
+| [Kitty](docs/kitty-setup.md) | Terminal GPU-accelerated, atalho `Super + T` |
+| [Wofi](docs/wofi-setup.md) | App launcher e seletor de clipboard, atalho `Super + R` |
+| [Thunar](docs/thunar-setup.md) | Gerenciador de arquivos, atalho `Super + E` |
+| [Zsh + Starship](docs/zsh-setup.md) | Shell com autocompletar, syntax highlighting e prompt |
 
 ### Utilitários
 
 | Documento | Descrição |
 |---|---|
-| [Screenshot](screenshot-setup.md) | hyprshot — região `Print`, janela `Super+Print`, monitor `Shift+Print` |
-| [Clipboard](clipboard-setup.md) | cliphist + wofi + wtype — histórico com `Super + Shift + V` |
-| [Polkit Agent](polkit-setup.md) | polkit-gnome — janela de autenticação para apps gráficos |
-| [Impressora](printer-setup.md) | CUPS + driver Samsung — USB e rede corporativa |
-| [Timeshift](timeshift-setup.md) | Snapshots BTRFS automáticos — diário, semanal e mensal |
+| [Screenshot](docs/screenshot-setup.md) | hyprshot — região `Print`, janela `Super+Print`, monitor `Shift+Print` |
+| [Clipboard](docs/clipboard-setup.md) | cliphist + wofi + wtype — histórico com `Super + Shift + V` |
+| [Polkit Agent](docs/polkit-setup.md) | polkit-gnome — janela de autenticação para apps gráficos |
+| [Impressora](docs/printer-setup.md) | CUPS + driver Samsung — USB e rede corporativa |
+| [Timeshift](docs/timeshift-setup.md) | Snapshots BTRFS automáticos — diário, semanal e mensal |
 
 ---
 

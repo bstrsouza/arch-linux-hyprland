@@ -24,7 +24,7 @@ cd yay && makepkg -si
 cd .. && rm -rf yay
 ```
 
-Consulte [yay-setup.md](yay-setup.md) para detalhes.
+Consulte [yay-setup.md](docs/yay-setup.md) para detalhes.
 
 ---
 
@@ -53,7 +53,7 @@ sudo mkinitcpio -P
 sudo reboot
 ```
 
-Consulte [nvidia-driver-setup.md](nvidia-driver-setup.md) para detalhes.
+Consulte [nvidia-driver-setup.md](docs/nvidia-driver-setup.md) para detalhes.
 
 ---
 
@@ -68,7 +68,7 @@ Teste iniciando pelo TTY:
 Hyprland
 ```
 
-Consulte [hyprland-setup.md](hyprland-setup.md) para a configuração completa.
+Consulte [hyprland-setup.md](docs/hyprland-setup.md) para a configuração completa.
 
 ---
 
@@ -86,7 +86,7 @@ Configure `/etc/sddm.conf`:
 Current=catppuccin-macchiato-blue
 ```
 
-Consulte [sddm-setup.md](sddm-setup.md) para detalhes.
+Consulte [sddm-setup.md](docs/sddm-setup.md) para detalhes.
 
 ---
 
@@ -97,7 +97,7 @@ sudo pacman -S zsh starship zsh-autosuggestions zsh-syntax-highlighting
 chsh -s /bin/zsh
 ```
 
-Configure `~/.zshrc`. Consulte [zsh-setup.md](zsh-setup.md) para detalhes.
+Configure `~/.zshrc`. Consulte [zsh-setup.md](docs/zsh-setup.md) para detalhes.
 
 ---
 
@@ -130,7 +130,7 @@ gtk-icon-theme-name=Adwaita
 gtk-font-name=Noto Sans 10
 ```
 
-Consulte [catppuccin-setup.md](catppuccin-setup.md) para aplicar em todos os componentes.
+Consulte [catppuccin-setup.md](docs/catppuccin-setup.md) para aplicar em todos os componentes.
 
 ---
 
