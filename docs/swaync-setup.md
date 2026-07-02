@@ -8,9 +8,7 @@
 
 ## Contexto
 
-O **swaync** é o daemon de notificações mais popular no ecossistema Hyprland.
-Além de exibir popups de notificação, oferece um painel lateral com histórico
-de notificações e suporte a Do Not Disturb.
+O **swaync** é o daemon de notificações mais popular no ecossistema Hyprland. Além de exibir popups de notificação, oferece um painel lateral com histórico de notificações e suporte a Do Not Disturb.
 
 ---
 

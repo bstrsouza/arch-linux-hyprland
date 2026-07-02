@@ -8,14 +8,9 @@
 
 ## Contexto
 
-O **Hyprland** é um compositor Wayland dinâmico com animações fluidas e alta
-configurabilidade. A partir da versão 0.47, a configuração migrou do formato
-`.conf` para **Lua**, o que traz mais flexibilidade mas requer atenção às
-mudanças de API entre versões.
+O **Hyprland** é um compositor Wayland dinâmico com animações fluidas e alta configurabilidade. A partir da versão 0.47, a configuração migrou do formato `.conf` para **Lua**, o que traz mais flexibilidade mas requer atenção às mudanças de API entre versões.
 
-> **Nota:** Este documento pressupõe que o Arch Linux já está instalado com
-> sistema de arquivos BTRFS e o driver NVIDIA configurado.
-> Consulte [nvidia-driver-setup.md](nvidia-driver-setup.md) antes de prosseguir.
+> **Nota:** Este documento pressupõe que o Arch Linux já está instalado com sistema de arquivos BTRFS e o driver NVIDIA configurado. Consulte [nvidia-driver-setup.md](nvidia-driver-setup.md) antes de prosseguir.
 
 ---
 
@@ -26,8 +21,7 @@ sudo pacman -S hyprland xdg-desktop-portal-hyprland
 ```
 
 - **hyprland** — o compositor
-- **xdg-desktop-portal-hyprland** — necessário para compartilhamento de tela,
-  captura de janelas e integração com apps Wayland
+- **xdg-desktop-portal-hyprland** — necessário para compartilhamento de tela, captura de janelas e integração com apps Wayland
 
 ---
 
@@ -71,11 +65,9 @@ hl.monitor({
 })
 ```
 
-Escala 1.5x para o display 2880x1800 do Samsung 960XFH. `output = ""` é uma regra
-coringa — se aplica a qualquer monitor sem uma regra própria, útil como fallback.
+Escala 1.5x para o display 2880x1800 do Samsung 960XFH. `output = ""` é uma regra coringa — se aplica a qualquer monitor sem uma regra própria, útil como fallback.
 
-> Para configurar múltiplos monitores (posição, resolução por tela, mover
-> workspaces entre monitores), consulte [monitors-setup.md](monitors-setup.md).
+> Para configurar múltiplos monitores (posição, resolução por tela, mover workspaces entre monitores), consulte [monitors-setup.md](monitors-setup.md).
 
 ---
 
@@ -214,8 +206,7 @@ Detalhes sobre múltiplos monitores em [monitors-setup.md](monitors-setup.md).
 
 ## Nota importante — Hyprland 0.55 e dispatch
 
-O Hyprland 0.55 com config Lua **mudou o protocolo de dispatch**. O formato
-`hyprctl dispatch exec <app>` não funciona mais. Use chamadas diretas:
+O Hyprland 0.55 com config Lua **mudou o protocolo de dispatch**. O formato `hyprctl dispatch exec <app>` não funciona mais. Use chamadas diretas:
 
 ```jsonc
 // Errado

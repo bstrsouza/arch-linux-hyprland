@@ -8,9 +8,7 @@
 
 ## Contexto
 
-O **Timeshift** é uma ferramenta de snapshots do sistema, similar ao "Ponto de
-Restauração" do Windows. No modo BTRFS, os snapshots são nativos do filesystem —
-extremamente rápidos e eficientes, armazenando apenas as diferenças entre estados.
+O **Timeshift** é uma ferramenta de snapshots do sistema, similar ao "Ponto de Restauração" do Windows. No modo BTRFS, os snapshots são nativos do filesystem — extremamente rápidos e eficientes, armazenando apenas as diferenças entre estados.
 
 ---
 
@@ -42,8 +40,7 @@ sudo timeshift-launcher
 | Weekly | 3 |
 | Monthly | 2 |
 
-O Timeshift mantém apenas a quantidade configurada — quando o limite é atingido,
-o snapshot mais antigo é removido automaticamente.
+O Timeshift mantém apenas a quantidade configurada — quando o limite é atingido, o snapshot mais antigo é removido automaticamente.
 
 ---
 
@@ -104,11 +101,8 @@ Não é necessário monitorar constantemente. Abra o Timeshift apenas:
 
 ## O que o Timeshift NÃO substitui
 
-- **Backup de arquivos pessoais importantes** (documentos, fotos) em disco externo
-  ou nuvem — o Timeshift é para restaurar o sistema, não para recuperar arquivos
-  deletados acidentalmente
-- **Backup offsite** — snapshots ficam no mesmo disco, se o disco falhar os
-  snapshots são perdidos junto
+- **Backup de arquivos pessoais importantes** (documentos, fotos) em disco externo ou nuvem — o Timeshift é para restaurar o sistema, não para recuperar arquivos deletados acidentalmente
+- **Backup offsite** — snapshots ficam no mesmo disco, se o disco falhar os snapshots são perdidos junto
 
 ---
 

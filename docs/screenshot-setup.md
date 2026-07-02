@@ -8,9 +8,7 @@
 
 ## Contexto
 
-O **hyprshot** é a ferramenta de captura de tela nativa do Hyprland. Suporta
-seleção de região, janela ou monitor inteiro, salva o arquivo em disco e copia
-automaticamente para o clipboard.
+O **hyprshot** é a ferramenta de captura de tela nativa do Hyprland. Suporta seleção de região, janela ou monitor inteiro, salva o arquivo em disco e copia automaticamente para o clipboard.
 
 ---
 

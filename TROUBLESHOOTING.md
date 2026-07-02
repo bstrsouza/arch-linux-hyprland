@@ -28,8 +28,7 @@ Afeta todos os `on-click` da Waybar e qualquer lugar que use `hyprctl dispatch e
 
 **Sintoma:** Clicar nos workspaces na Waybar não troca de workspace.
 
-**Causa:** O módulo `hyprland/workspaces` da Waybar usa internamente `dispatch workspace X`
-(formato antigo de socket), que foi descontinuado no Hyprland 0.55.
+**Causa:** O módulo `hyprland/workspaces` da Waybar usa internamente `dispatch workspace X` (formato antigo de socket), que foi descontinuado no Hyprland 0.55.
 
 **Status:** Pendente de atualização da Waybar. A troca por teclado (`Super + 1..9`) funciona normalmente.
 
@@ -120,8 +119,7 @@ hl.window_rule({ center = true, float = true })
 
 **Causa:** CSS customizado com propriedades inválidas interfere na renderização e nos eventos de clique.
 
-**Solução:** Manter o CSS mínimo. Evitar sobrescrever propriedades que afetem eventos de input.
-O layout (`~/.config/wlogout/layout`) pode ser customizado sem problemas.
+**Solução:** Manter o CSS mínimo. Evitar sobrescrever propriedades que afetem eventos de input. O layout (`~/.config/wlogout/layout`) pode ser customizado sem problemas.
 
 ---
 
@@ -160,8 +158,7 @@ eval "$(starship init zsh)"
 
 ## hyprlauncher --dmenu — seleção não funciona
 
-**Sintoma:** Ao usar `cliphist list | hyprlauncher --dmenu | cliphist decode | wl-copy`,
-o item selecionado não é copiado para o clipboard.
+**Sintoma:** Ao usar `cliphist list | hyprlauncher --dmenu | cliphist decode | wl-copy`, o item selecionado não é copiado para o clipboard.
 
 **Causa:** O `hyprlauncher --dmenu` não envia a seleção para o stdout corretamente.
 
@@ -204,13 +201,9 @@ Consulte [nvidia-driver-setup.md](docs/nvidia-driver-setup.md) para o processo c
 
 ## hl.monitor — posição explícita ignorada a partir do 2º monitor
 
-**Sintoma:** Ao configurar 3 monitores numa única chamada `hl.monitor({...}, {...}, {...})`,
-apenas a posição (`position`) da primeira tabela é respeitada. As demais são posicionadas como
-se `position = "auto"`, mesmo com coordenadas explícitas definidas — inclusive alterando `scale`
-e o modo de vídeo escolhido pelo Hyprland para o monitor afetado.
+**Sintoma:** Ao configurar 3 monitores numa única chamada `hl.monitor({...}, {...}, {...})`, apenas a posição (`position`) da primeira tabela é respeitada. As demais são posicionadas como se `position = "auto"`, mesmo com coordenadas explícitas definidas — inclusive alterando `scale` e o modo de vídeo escolhido pelo Hyprland para o monitor afetado.
 
-**Causa:** Bug/limitação do parser Lua do Hyprland 0.55: múltiplas tabelas passadas na mesma
-chamada de `hl.monitor()` não têm o campo `position` das entradas 2+ processado corretamente.
+**Causa:** Bug/limitação do parser Lua do Hyprland 0.55: múltiplas tabelas passadas na mesma chamada de `hl.monitor()` não têm o campo `position` das entradas 2+ processado corretamente.
 
 **Solução:** Fazer uma chamada `hl.monitor()` separada para cada monitor.
 
@@ -232,22 +225,11 @@ hl.monitor({output = "eDP-1", mode = "2880x1800@60", position = "960x1080", scal
 
 ## Waybar/wallpaper "grudam" na posição antiga ao desconectar um monitor
 
-**Sintoma:** Ao desconectar um monitor externo, o Hyprland reposiciona corretamente
-o(s) monitor(es) restante(s) (`hyprctl monitors` mostra a posição nova), mas a
-Waybar e o wallpaper (`awww-daemon`) continuam renderizados na posição antiga —
-`hyprctl layers` mostra `xywh` com as coordenadas de antes da desconexão. Não se
-autocorrige sozinho, mesmo esperando.
+**Sintoma:** Ao desconectar um monitor externo, o Hyprland reposiciona corretamente o(s) monitor(es) restante(s) (`hyprctl monitors` mostra a posição nova), mas a Waybar e o wallpaper (`awww-daemon`) continuam renderizados na posição antiga — `hyprctl layers` mostra `xywh` com as coordenadas de antes da desconexão. Não se autocorrige sozinho, mesmo esperando.
 
-**Causa:** Quando um monitor some e isso muda a posição de outro monitor
-sobrevivente (ex: o laptop se recentraliza depois que os externos saem), o
-Hyprland não força as layer-shell surfaces já abertas nesse monitor (Waybar,
-daemon de wallpaper) a refazer o layout — elas ficam com a geometria antiga até
-algo forçar um reflow. Reproduzido de forma determinística criando/removendo um
-monitor virtual (`hyprctl output create/remove headless`) e reposicionando o
-`eDP-1` via `hl.monitor()` dentro do handler de `monitor.removed`.
+**Causa:** Quando um monitor some e isso muda a posição de outro monitor sobrevivente (ex: o laptop se recentraliza depois que os externos saem), o Hyprland não força as layer-shell surfaces já abertas nesse monitor (Waybar, daemon de wallpaper) a refazer o layout — elas ficam com a geometria antiga até algo forçar um reflow. Reproduzido de forma determinística criando/removendo um monitor virtual (`hyprctl output create/remove headless`) e reposicionando o `eDP-1` via `hl.monitor()` dentro do handler de `monitor.removed`.
 
-**Solução:** Chamar o dispatcher `force_renderer_reload` logo depois de reaplicar
-os `hl.monitor()`, dentro da própria função de layout:
+**Solução:** Chamar o dispatcher `force_renderer_reload` logo depois de reaplicar os `hl.monitor()`, dentro da própria função de layout:
 
 ```lua
 local function applyMonitorLayout()
@@ -256,8 +238,6 @@ local function applyMonitorLayout()
 end
 ```
 
-Um `hyprctl reload` completo também resolve (força um reflow geral), mas
-`force_renderer_reload()` é mais leve e pode ser disparado automaticamente
-dentro dos handlers `hl.on("monitor.added"/"monitor.removed", ...)`.
+Um `hyprctl reload` completo também resolve (força um reflow geral), mas `force_renderer_reload()` é mais leve e pode ser disparado automaticamente dentro dos handlers `hl.on("monitor.added"/"monitor.removed", ...)`.
 
 Ver também [monitors-setup.md](docs/monitors-setup.md).

@@ -7,13 +7,9 @@
 
 ## Contexto
 
-O Hyprland possui um wallpaper padrão próprio controlado pela opção
-`force_default_wallpaper`. Para usar um wallpaper específico e ter controle
-total sobre a imagem exibida, a opção foi desabilitada e o `awww` assumiu
-o controle.
+O Hyprland possui um wallpaper padrão próprio controlado pela opção `force_default_wallpaper`. Para usar um wallpaper específico e ter controle total sobre a imagem exibida, a opção foi desabilitada e o `awww` assumiu o controle.
 
-> **Nota:** O pacote se chama `swww` no pacman, mas os binários instalados
-> são `awww` e `awww-daemon`.
+> **Nota:** O pacote se chama `swww` no pacman, mas os binários instalados são `awww` e `awww-daemon`.
 
 ---
 
@@ -56,8 +52,7 @@ hl.on("hyprland.start", function ()
 end)
 ```
 
-O `awww-daemon` precisa iniciar **antes** do comando `awww img`, pois o
-daemon é o processo que efetivamente renderiza o wallpaper.
+O `awww-daemon` precisa iniciar **antes** do comando `awww img`, pois o daemon é o processo que efetivamente renderiza o wallpaper.
 
 ---
 
@@ -87,5 +82,4 @@ awww img /caminho/para/imagem.png --transition-type fade
 awww img /caminho/para/imagem.png --transition-type wipe
 ```
 
-Para trocar permanentemente, atualize o caminho no autostart do
-`~/.config/hypr/hyprland.lua`.
+Para trocar permanentemente, atualize o caminho no autostart do `~/.config/hypr/hyprland.lua`.

@@ -8,12 +8,9 @@
 
 ## Contexto
 
-O **hypridle** é o daemon de inatividade oficial do Hyprland. Ele monitora o tempo
-sem interação do usuário e executa ações progressivas: reduzir brilho, bloquear a
-tela, desligar o display e suspender o sistema.
+O **hypridle** é o daemon de inatividade oficial do Hyprland. Ele monitora o tempo sem interação do usuário e executa ações progressivas: reduzir brilho, bloquear a tela, desligar o display e suspender o sistema.
 
-Integra-se nativamente com o **hyprlock** (bloqueio de tela) e o **loginctl**
-(gerenciador de sessão do systemd).
+Integra-se nativamente com o **hyprlock** (bloqueio de tela) e o **loginctl** (gerenciador de sessão do systemd).
 
 ---
 
@@ -98,8 +95,7 @@ listener {
 | 8 min (480s) | Display desligado | Display religado |
 | 15 min (900s) | Sistema suspenso | — |
 
-> Para ajustar os tempos, edite os valores de `timeout` em
-> `~/.config/hypr/hypridle.conf`. O hypridle relê o arquivo automaticamente.
+> Para ajustar os tempos, edite os valores de `timeout` em `~/.config/hypr/hypridle.conf`. O hypridle relê o arquivo automaticamente.
 
 ---
 

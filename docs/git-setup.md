@@ -6,8 +6,7 @@
 
 ## Contexto
 
-O **Git** é necessário tanto para uso pessoal (controle de versão de projetos)
-quanto como dependência para instalar pacotes do AUR via `yay`.
+O **Git** é necessário tanto para uso pessoal (controle de versão de projetos) quanto como dependência para instalar pacotes do AUR via `yay`.
 
 ---
 

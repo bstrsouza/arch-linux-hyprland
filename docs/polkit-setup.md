@@ -4,16 +4,11 @@
 
 ## Contexto
 
-O **polkit** é o sistema do Linux responsável por autorizar ações privilegiadas
-em aplicativos gráficos. Quando um app precisa de permissão de root — como
-formatar um disco no Thunar, instalar uma impressora ou modificar configurações
-de rede — ele solicita autenticação via polkit.
+O **polkit** é o sistema do Linux responsável por autorizar ações privilegiadas em aplicativos gráficos. Quando um app precisa de permissão de root — como formatar um disco no Thunar, instalar uma impressora ou modificar configurações de rede — ele solicita autenticação via polkit.
 
-Sem um **agente polkit** rodando, a janela de senha simplesmente não aparece e
-a ação falha silenciosamente.
+Sem um **agente polkit** rodando, a janela de senha simplesmente não aparece e a ação falha silenciosamente.
 
-O `polkit-gnome` é o agente mais compatível e amplamente usado em ambientes
-Wayland não-GNOME, como o Hyprland.
+O `polkit-gnome` é o agente mais compatível e amplamente usado em ambientes Wayland não-GNOME, como o Hyprland.
 
 ---
 
@@ -33,8 +28,7 @@ Em `~/.config/hypr/hyprland.lua`:
 hl.exec_cmd("/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
 ```
 
-O agente é iniciado junto com o Hyprland e fica em segundo plano aguardando
-solicitações de autenticação.
+O agente é iniciado junto com o Hyprland e fica em segundo plano aguardando solicitações de autenticação.
 
 ---
 

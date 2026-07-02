@@ -9,9 +9,7 @@
 
 ## Contexto
 
-O **kitty** é um emulador de terminal GPU-accelerated, rápido e altamente
-customizável. Já veio pré-configurado com o tema Catppuccin-Macchiato e a
-fonte JetBrainsMono Nerd Font, consistentes com o restante do ambiente.
+O **kitty** é um emulador de terminal GPU-accelerated, rápido e altamente customizável. Já veio pré-configurado com o tema Catppuccin-Macchiato e a fonte JetBrainsMono Nerd Font, consistentes com o restante do ambiente.
 
 ---
 

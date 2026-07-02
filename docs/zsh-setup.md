@@ -7,10 +7,7 @@
 
 ## Contexto
 
-O Arch Linux usa `bash` como shell padrão. O **Zsh** é uma alternativa mais moderna, com melhor
-suporte a plugins, autocompletion e personalização. Combinado com o **Starship** (prompt
-customizável) e dois plugins de produtividade, resulta em uma experiência de terminal
-significativamente mais agradável.
+O Arch Linux usa `bash` como shell padrão. O **Zsh** é uma alternativa mais moderna, com melhor suporte a plugins, autocompletion e personalização. Combinado com o **Starship** (prompt customizável) e dois plugins de produtividade, resulta em uma experiência de terminal significativamente mais agradável.
 
 ---
 
@@ -80,16 +77,13 @@ Mapeamentos de teclado para navegação no terminal:
 
 ### Sobre os plugins
 
-O `zsh-syntax-highlighting` deve ser sempre o **último plugin** a ser carregado. Carregá-lo
-antes de outros plugins pode causar comportamento incorreto no highlighting.
+O `zsh-syntax-highlighting` deve ser sempre o **último plugin** a ser carregado. Carregá-lo antes de outros plugins pode causar comportamento incorreto no highlighting.
 
 ---
 
 ## Configuração do Starship — ~/.config/starship.toml
 
-O Starship está configurado com o preset de **Nerd Fonts**, que exibe ícones para linguagens,
-ferramentas, status do git e sistema operacional. Requer uma fonte Nerd Font instalada no
-terminal.
+O Starship está configurado com o preset de **Nerd Fonts**, que exibe ícones para linguagens, ferramentas, status do git e sistema operacional. Requer uma fonte Nerd Font instalada no terminal.
 
 Para gerar o preset padrão de Nerd Fonts:
 

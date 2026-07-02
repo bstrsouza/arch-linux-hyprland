@@ -8,8 +8,7 @@
 
 ## Autostart no Hyprland
 
-A Waybar é iniciada automaticamente com o Hyprland. A saída é redirecionada para
-`/dev/null` para evitar logs no terminal:
+A Waybar é iniciada automaticamente com o Hyprland. A saída é redirecionada para `/dev/null` para evitar logs no terminal:
 
 ```lua
 hl.on("hyprland.start", function ()
@@ -30,8 +29,7 @@ end)
 
 ## Correção importante — Hyprland 0.55 + Waybar
 
-O Hyprland 0.55 com config Lua **mudou o protocolo de dispatch**. O formato antigo
-`hyprctl dispatch exec <app>` não funciona mais e retorna erro de sintaxe Lua.
+O Hyprland 0.55 com config Lua **mudou o protocolo de dispatch**. O formato antigo `hyprctl dispatch exec <app>` não funciona mais e retorna erro de sintaxe Lua.
 
 **Solução:** chamar os aplicativos diretamente, sem o wrapper `hyprctl dispatch exec`.
 
@@ -43,8 +41,7 @@ O Hyprland 0.55 com config Lua **mudou o protocolo de dispatch**. O formato anti
 "on-click": "blueman-manager"
 ```
 
-Isso foi corrigido em todos os módulos: `custom/menu`, `bluetooth`, `pulseaudio`,
-`network` e `custom/power`.
+Isso foi corrigido em todos os módulos: `custom/menu`, `bluetooth`, `pulseaudio`, `network` e `custom/power`.
 
 ---
 
@@ -77,11 +74,7 @@ Exibe os workspaces ativos com ícones diferenciados por estado.
 }
 ```
 
-> **Problema conhecido:** o clique para trocar de workspace via mouse não funciona
-> no Waybar 0.15.0 com Hyprland 0.55. O módulo interno usa `dispatch workspace X`
-> (formato antigo) para comunicação via socket, que foi descontinuado no Hyprland 0.55.
-> A troca por teclado (`Super + N`) funciona normalmente. Resolver após atualização
-> do Waybar.
+> **Problema conhecido:** o clique para trocar de workspace via mouse não funciona no Waybar 0.15.0 com Hyprland 0.55. O módulo interno usa `dispatch workspace X` (formato antigo) para comunicação via socket, que foi descontinuado no Hyprland 0.55. A troca por teclado (`Super + N`) funciona normalmente. Resolver após atualização do Waybar.
 
 ---
 
@@ -110,8 +103,7 @@ Relógio centralizado com data e hora. Tooltip exibe calendário ao passar o mou
 ---
 
 ### custom/spotify
-Exibe artista e título da música tocando no Spotify. Some automaticamente quando
-o Spotify está fechado (`2>/dev/null` suprime o erro do playerctl).
+Exibe artista e título da música tocando no Spotify. Some automaticamente quando o Spotify está fechado (`2>/dev/null` suprime o erro do playerctl).
 
 ```jsonc
 "custom/spotify": {
@@ -129,8 +121,7 @@ o Spotify está fechado (`2>/dev/null` suprime o erro do playerctl).
 ---
 
 ### bluetooth
-Exibe ícone de bluetooth com estado (conectado / desconectado / desligado).
-Abre o `blueman-manager` ao clicar.
+Exibe ícone de bluetooth com estado (conectado / desconectado / desligado). Abre o `blueman-manager` ao clicar.
 
 ```jsonc
 "bluetooth": {
@@ -184,8 +175,7 @@ hl.window_rule({
 ---
 
 ### network
-Exibe ícone WiFi e intensidade do sinal. Tooltip mostra nome da rede e gateway.
-Abre o `nm-connection-editor` ao clicar.
+Exibe ícone WiFi e intensidade do sinal. Tooltip mostra nome da rede e gateway. Abre o `nm-connection-editor` ao clicar.
 
 ```jsonc
 "network": {
@@ -214,8 +204,7 @@ hl.window_rule({
 ---
 
 ### battery
-Exibe ícone dinâmico e percentual de carga. Alerta visual em vermelho com
-animação piscante abaixo de 15%.
+Exibe ícone dinâmico e percentual de carga. Alerta visual em vermelho com animação piscante abaixo de 15%.
 
 ```jsonc
 "battery": {
@@ -229,8 +218,7 @@ animação piscante abaixo de 15%.
 ---
 
 ### custom/power
-Botão de energia que abre o `wlogout` em modo compacto horizontal com 4 opções:
-lock, suspend, reboot e shutdown.
+Botão de energia que abre o `wlogout` em modo compacto horizontal com 4 opções: lock, suspend, reboot e shutdown.
 
 ```jsonc
 "custom/power": {

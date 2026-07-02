@@ -6,13 +6,9 @@
 
 ## Contexto
 
-O **yay** (Yet Another Yogurt) é um helper para o AUR (Arch User Repository) —
-o repositório comunitário do Arch Linux que contém milhares de pacotes não
-presentes nos repositórios oficiais.
+O **yay** (Yet Another Yogurt) é um helper para o AUR (Arch User Repository) — o repositório comunitário do Arch Linux que contém milhares de pacotes não presentes nos repositórios oficiais.
 
-O `pacman` só instala pacotes dos repositórios oficiais. O `yay` estende essa
-capacidade, permitindo instalar pacotes do AUR com a mesma simplicidade do
-`pacman`.
+O `pacman` só instala pacotes dos repositórios oficiais. O `yay` estende essa capacidade, permitindo instalar pacotes do AUR com a mesma simplicidade do `pacman`.
 
 ---
 
@@ -23,8 +19,7 @@ sudo pacman -S git base-devel
 ```
 
 - **git** — para clonar o repositório do yay
-- **base-devel** — ferramentas de compilação (gcc, make, etc.) necessárias para
-  construir pacotes AUR
+- **base-devel** — ferramentas de compilação (gcc, make, etc.) necessárias para construir pacotes AUR
 
 ---
 
@@ -79,6 +74,4 @@ yay -Si nome-do-pacote
 | `sudo pacman -S pacote` | Apenas repositórios oficiais |
 | `yay -S pacote` | Oficiais + AUR |
 
-> **Nota de segurança:** Pacotes do AUR são mantidos pela comunidade, não pelo
-> time do Arch Linux. Antes de instalar, verifique o PKGBUILD do pacote no
-> site `aur.archlinux.org`.
+> **Nota de segurança:** Pacotes do AUR são mantidos pela comunidade, não pelo time do Arch Linux. Antes de instalar, verifique o PKGBUILD do pacote no site `aur.archlinux.org`.

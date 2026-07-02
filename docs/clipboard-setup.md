@@ -4,9 +4,7 @@
 
 ## Contexto
 
-O Wayland não tem um gerenciador de clipboard persistente por padrão — ao fechar
-um app, o conteúdo copiado nele é perdido. A solução é um daemon que monitora o
-clipboard e armazena o histórico.
+O Wayland não tem um gerenciador de clipboard persistente por padrão — ao fechar um app, o conteúdo copiado nele é perdido. A solução é um daemon que monitora o clipboard e armazena o histórico.
 
 **Componentes:**
 
@@ -36,8 +34,7 @@ hl.exec_cmd("wl-paste --type text --watch cliphist store")
 hl.exec_cmd("wl-paste --type image --watch cliphist store")
 ```
 
-Monitoram o clipboard continuamente e salvam cada item copiado no banco do
-cliphist (`~/.cache/cliphist/db`).
+Monitoram o clipboard continuamente e salvam cada item copiado no banco do cliphist (`~/.cache/cliphist/db`).
 
 ---
 

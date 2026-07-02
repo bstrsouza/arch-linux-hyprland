@@ -4,9 +4,7 @@
 
 ## Contexto
 
-O **CUPS** (Common Unix Printing System) é o sistema de impressão padrão do
-Linux. Suporta impressoras USB, rede Wi-Fi e servidores de impressão
-compartilhados.
+O **CUPS** (Common Unix Printing System) é o sistema de impressão padrão do Linux. Suporta impressoras USB, rede Wi-Fi e servidores de impressão compartilhados.
 
 ---
 
@@ -22,8 +20,7 @@ sudo systemctl enable --now cups
 
 ## Impressora USB (Samsung — uso doméstico)
 
-O CUPS detecta e configura automaticamente impressoras USB ao conectá-las
-com o serviço ativo.
+O CUPS detecta e configura automaticamente impressoras USB ao conectá-las com o serviço ativo.
 
 **Passos:**
 1. Ligue a impressora
@@ -46,8 +43,7 @@ system-config-printer
 
 ## Impressoras de rede Wi-Fi (uso corporativo)
 
-Quando conectado à rede da empresa, o CUPS escaneia e lista as impressoras
-disponíveis automaticamente.
+Quando conectado à rede da empresa, o CUPS escaneia e lista as impressoras disponíveis automaticamente.
 
 **Passos:**
 1. Conecte ao Wi-Fi da empresa

@@ -8,12 +8,9 @@
 
 ## Contexto
 
-O **Catppuccin** é uma palette de cores pastel escura amplamente adotada na comunidade Linux.
-A variante **Macchiato** oferece um fundo médio-escuro (`#24273a`) com cores suaves e bem
-contrastadas, sem ser tão escura quanto o Mocha.
+O **Catppuccin** é uma palette de cores pastel escura amplamente adotada na comunidade Linux. A variante **Macchiato** oferece um fundo médio-escuro (`#24273a`) com cores suaves e bem contrastadas, sem ser tão escura quanto o Mocha.
 
-A unificação do tema em todos os componentes garante consistência visual entre a tela de login,
-o compositor, os apps GTK, as notificações e o power menu.
+A unificação do tema em todos os componentes garante consistência visual entre a tela de login, o compositor, os apps GTK, as notificações e o power menu.
 
 ---
 
@@ -128,22 +125,19 @@ CSS em `~/.config/wlogout/style.css`:
 
 ### 6. Kitty — terminal
 
-Já configurado com Catppuccin Macchiato via `~/.config/kitty/current-theme.conf`.
-Consulte `kitty-setup.md` para detalhes.
+Já configurado com Catppuccin Macchiato via `~/.config/kitty/current-theme.conf`. Consulte `kitty-setup.md` para detalhes.
 
 ---
 
 ### 7. Waybar e Hyprlock
 
-Já configurados com cores Macchiato diretamente nos arquivos CSS/conf.
-Consulte `waybar-setup.md` e `hyprlock-setup.md` para detalhes.
+Já configurados com cores Macchiato diretamente nos arquivos CSS/conf. Consulte `waybar-setup.md` e `hyprlock-setup.md` para detalhes.
 
 ---
 
 ### 8. wofi — launcher e clipboard picker
 
-CSS em `~/.config/wofi/style.css` com cores Catppuccin Macchiato.
-Consulte `wofi-setup.md` para detalhes.
+CSS em `~/.config/wofi/style.css` com cores Catppuccin Macchiato. Consulte `wofi-setup.md` para detalhes.
 
 ---
 

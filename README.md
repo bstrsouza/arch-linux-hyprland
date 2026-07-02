@@ -1,22 +1,16 @@
 # Arch Linux + Hyprland — Ambiente de Trabalho Completo
 
-Um ambiente de trabalho moderno, leve e visualmente unificado construído sobre
-**Arch Linux** e **Hyprland**, com tema **Catppuccin Macchiato** aplicado em
-todos os componentes.
+Um ambiente de trabalho moderno, leve e visualmente unificado construído sobre **Arch Linux** e **Hyprland**, com tema **Catppuccin Macchiato** aplicado em todos os componentes.
 
 ---
 
 ## Sobre o projeto
 
-Este repositório documenta a configuração completa de um ambiente Linux
-profissional, incluindo cada decisão tomada, problema encontrado e solução
-aplicada.
+Este repositório documenta a configuração completa de um ambiente Linux profissional, incluindo cada decisão tomada, problema encontrado e solução aplicada.
 
-**Objetivo:** Servir como referência para replicar ou adaptar este ambiente em
-qualquer máquina com Arch Linux, economizando horas de pesquisa e tentativa e erro.
+**Objetivo:** Servir como referência para replicar ou adaptar este ambiente em qualquer máquina com Arch Linux, economizando horas de pesquisa e tentativa e erro.
 
-**Público-alvo:** Usuários iniciantes a intermediários do Linux que queiram
-montar um ambiente Hyprland funcional, bonito e bem documentado.
+**Público-alvo:** Usuários iniciantes a intermediários do Linux que queiram montar um ambiente Hyprland funcional, bonito e bem documentado.
 
 ---
 

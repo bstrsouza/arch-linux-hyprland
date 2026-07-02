@@ -7,9 +7,7 @@
 
 ## Contexto
 
-O **Thunar** foi escolhido por ser o gerenciador de arquivos mais leve com
-interface gráfica completa — poucas dependências GTK3, sem frameworks pesados
-como KDE ou GNOME, e suporte nativo a dark mode e tema via sistema GTK.
+O **Thunar** foi escolhido por ser o gerenciador de arquivos mais leve com interface gráfica completa — poucas dependências GTK3, sem frameworks pesados como KDE ou GNOME, e suporte nativo a dark mode e tema via sistema GTK.
 
 ---
 
@@ -52,5 +50,4 @@ gtk-font-name=Noto Sans 10
 yay -S catppuccin-gtk-theme-macchiato
 ```
 
-> Esses arquivos afetam todos os apps GTK3 e GTK4 do sistema — Thunar,
-> blueman, pavucontrol e nm-connection-editor.
+> Esses arquivos afetam todos os apps GTK3 e GTK4 do sistema — Thunar, blueman, pavucontrol e nm-connection-editor.

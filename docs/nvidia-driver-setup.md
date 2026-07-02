@@ -8,17 +8,11 @@
 
 ## Contexto
 
-O sistema saiu de fábrica usando o driver `nouveau` para a RTX 4070. O `nouveau` é um driver
-open-source criado por engenharia reversa, sem suporte oficial da NVIDIA. Para GPUs da arquitetura
-Ada Lovelace (RTX 40xx), ele não oferece aceleração 3D real e pode causar instabilidade no
-Hyprland.
+O sistema saiu de fábrica usando o driver `nouveau` para a RTX 4070. O `nouveau` é um driver open-source criado por engenharia reversa, sem suporte oficial da NVIDIA. Para GPUs da arquitetura Ada Lovelace (RTX 40xx), ele não oferece aceleração 3D real e pode causar instabilidade no Hyprland.
 
-A solução é instalar o `nvidia-open`, que são os módulos de kernel open-source **oficiais**
-lançados pela própria NVIDIA a partir de 2022. São a opção recomendada para GPUs Turing em diante.
+A solução é instalar o `nvidia-open`, que são os módulos de kernel open-source **oficiais** lançados pela própria NVIDIA a partir de 2022. São a opção recomendada para GPUs Turing em diante.
 
-Este laptop usa **gráficos híbridos (NVIDIA Optimus)**: a Intel Iris Xe gerencia o display e o
-consumo do dia a dia, enquanto a RTX 4070 é acionada sob demanda para tarefas pesadas (jogos,
-renders, etc). Essa arquitetura economiza bateria sem abrir mão da performance quando necessário.
+Este laptop usa **gráficos híbridos (NVIDIA Optimus)**: a Intel Iris Xe gerencia o display e o consumo do dia a dia, enquanto a RTX 4070 é acionada sob demanda para tarefas pesadas (jogos, renders, etc). Essa arquitetura economiza bateria sem abrir mão da performance quando necessário.
 
 ---
 
@@ -44,9 +38,7 @@ options nouveau modeset=0
 EOF
 ```
 
-**Por quê:** Mesmo com o `nvidia-open` instalado, o kernel pode carregar o `nouveau` por padrão,
-causando conflito. Este arquivo instrui o kernel a nunca carregar o módulo `nouveau`, garantindo
-que apenas o driver correto seja usado.
+**Por quê:** Mesmo com o `nvidia-open` instalado, o kernel pode carregar o `nouveau` por padrão, causando conflito. Este arquivo instrui o kernel a nunca carregar o módulo `nouveau`, garantindo que apenas o driver correto seja usado.
 
 ---
 
@@ -70,10 +62,7 @@ MODULES=(nvidia nvidia_modeset nvidia_uvm nvidia_drm)
 HOOKS=(base udev autodetect microcode modconf keyboard keymap consolefont block filesystems fsck)
 ```
 
-**Por quê — `MODULES`:** Os quatro módulos NVIDIA precisam ser carregados no initramfs (o
-ambiente mínimo que inicia antes do sistema de arquivos principal ser montado). Isso garante que
-o driver esteja disponível desde o início do boot, evitando uma tela preta ao iniciar o
-Hyprland.
+**Por quê — `MODULES`:** Os quatro módulos NVIDIA precisam ser carregados no initramfs (o ambiente mínimo que inicia antes do sistema de arquivos principal ser montado). Isso garante que o driver esteja disponível desde o início do boot, evitando uma tela preta ao iniciar o Hyprland.
 
 | Módulo | Função |
 |---|---|
@@ -82,18 +71,13 @@ Hyprland.
 | `nvidia_uvm` | Memória unificada (usado por CUDA e Vulkan) |
 | `nvidia_drm` | Integração com o subsistema DRM do kernel (necessário para Wayland) |
 
-**Por quê — remover `kms`:** O hook `kms` (Kernel Mode Setting) carrega os drivers de vídeo
-genéricos do kernel no initramfs. Com o driver NVIDIA, isso causa conflito porque o `kms` tenta
-inicializar o display antes do driver proprietário estar pronto. Manter os dois resulta em falha
-no boot ou tela preta.
+**Por quê — remover `kms`:** O hook `kms` (Kernel Mode Setting) carrega os drivers de vídeo genéricos do kernel no initramfs. Com o driver NVIDIA, isso causa conflito porque o `kms` tenta inicializar o display antes do driver proprietário estar pronto. Manter os dois resulta em falha no boot ou tela preta.
 
 ---
 
 ## Passo 4 — Adicionar parâmetros do kernel
 
-> **Nota sobre o bootloader:** Este sistema usa systemd-boot com UKI (Unified Kernel Image).
-> Em vez de arquivos `.conf` separados por entrada de boot, os parâmetros do kernel ficam
-> centralizados em `/etc/kernel/cmdline`. A imagem gerada é `/boot/EFI/Linux/arch-linux.efi`.
+> **Nota sobre o bootloader:** Este sistema usa systemd-boot com UKI (Unified Kernel Image). Em vez de arquivos `.conf` separados por entrada de boot, os parâmetros do kernel ficam centralizados em `/etc/kernel/cmdline`. A imagem gerada é `/boot/EFI/Linux/arch-linux.efi`.
 
 Edite o arquivo de parâmetros:
 
@@ -114,10 +98,8 @@ root=PARTUUID=<SEU-PARTUUID> zswap.enabled=0 rootflags=subvol=@ rw rootfstype=bt
 ```
 
 **Por quê:**
-- `nvidia_drm.modeset=1` — ativa o Kernel Mode Setting do driver NVIDIA, obrigatório para
-  Wayland. Sem isso o Hyprland não consegue iniciar.
-- `nvidia_drm.fbdev=1` — ativa o framebuffer do driver NVIDIA, necessário a partir do kernel 6.x
-  para exibir o console e o splash de boot corretamente.
+- `nvidia_drm.modeset=1` — ativa o Kernel Mode Setting do driver NVIDIA, obrigatório para Wayland. Sem isso o Hyprland não consegue iniciar.
+- `nvidia_drm.fbdev=1` — ativa o framebuffer do driver NVIDIA, necessário a partir do kernel 6.x para exibir o console e o splash de boot corretamente.
 
 ---
 
@@ -127,13 +109,9 @@ root=PARTUUID=<SEU-PARTUUID> zswap.enabled=0 rootflags=subvol=@ rw rootfstype=bt
 sudo mkinitcpio -P
 ```
 
-**Por quê:** As alterações nos passos 3 e 4 não têm efeito imediato — elas definem como a
-próxima imagem de boot será gerada. Este comando reconstrói o arquivo
-`/boot/EFI/Linux/arch-linux.efi` incorporando os novos módulos e parâmetros. Só depois disso as
-mudanças entram em vigor no próximo boot.
+**Por quê:** As alterações nos passos 3 e 4 não têm efeito imediato — elas definem como a próxima imagem de boot será gerada. Este comando reconstrói o arquivo `/boot/EFI/Linux/arch-linux.efi` incorporando os novos módulos e parâmetros. Só depois disso as mudanças entram em vigor no próximo boot.
 
-> O `-P` reconstrói todos os presets definidos em `/etc/mkinitcpio.d/`. No caso deste sistema,
-> isso gera `arch-linux.efi` e `arch-linux-fallback.efi`.
+> O `-P` reconstrói todos os presets definidos em `/etc/mkinitcpio.d/`. No caso deste sistema, isso gera `arch-linux.efi` e `arch-linux-fallback.efi`.
 
 ---
 
@@ -207,8 +185,7 @@ Disp.A: Off  →  Hyprland rodando na Intel (comportamento correto para hybrid g
 
 ## Uso da NVIDIA sob demanda (PRIME Offloading)
 
-O Hyprland continua rodando na Intel Iris Xe por padrão — o que é o comportamento correto para
-um laptop, pois consome menos energia. Para executar um aplicativo específico na RTX 4070:
+O Hyprland continua rodando na Intel Iris Xe por padrão — o que é o comportamento correto para um laptop, pois consome menos energia. Para executar um aplicativo específico na RTX 4070:
 
 ```bash
 # Método manual
@@ -223,13 +200,11 @@ prime-run nome-do-app
 
 ## Impacto no Dual Boot com Windows
 
-Nenhuma das etapas acima afeta a instalação do Windows. A partição EFI
-(`/dev/nvme0n1p1`) contém pastas separadas para cada sistema:
+Nenhuma das etapas acima afeta a instalação do Windows. A partição EFI (`/dev/nvme0n1p1`) contém pastas separadas para cada sistema:
 
 ```
 /boot/EFI/Linux/       ← arquivos do Arch Linux (modificados pelo mkinitcpio)
 /boot/EFI/Microsoft/   ← arquivos do Windows   (intocados)
 ```
 
-O Windows possui seu próprio driver NVIDIA (GeForce Game Ready Driver), completamente
-independente. Os dois coexistem sem conflito.
+O Windows possui seu próprio driver NVIDIA (GeForce Game Ready Driver), completamente independente. Os dois coexistem sem conflito.

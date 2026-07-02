@@ -7,8 +7,7 @@
 
 ## Contexto
 
-O **wofi** é um launcher Wayland nativo baseado em GTK. Foi escolhido por ser
-leve e capaz de fazer as duas funções necessárias:
+O **wofi** é um launcher Wayland nativo baseado em GTK. Foi escolhido por ser leve e capaz de fazer as duas funções necessárias:
 
 - **App launcher** — abre aplicativos instalados (`--show drun`)
 - **Dmenu** — seletor de lista para o histórico de clipboard (`--dmenu`)

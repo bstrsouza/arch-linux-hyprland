@@ -8,14 +8,11 @@
 
 ## Contexto
 
-Uma instalação mínima do Arch Linux não inclui interface gráfica de login — o sistema inicia
-direto no TTY, exigindo login manual e execução do comando `Hyprland` a cada boot.
+Uma instalação mínima do Arch Linux não inclui interface gráfica de login — o sistema inicia direto no TTY, exigindo login manual e execução do comando `Hyprland` a cada boot.
 
-A solução é instalar um **display manager**: um serviço que inicializa com o sistema, exibe uma
-tela de login gráfica e inicia o compositor (Hyprland) após a autenticação.
+A solução é instalar um **display manager**: um serviço que inicializa com o sistema, exibe uma tela de login gráfica e inicia o compositor (Hyprland) após a autenticação.
 
-O **SDDM** (Simple Desktop Display Manager) foi escolhido por ser leve, amplamente suportado e
-compatível com Wayland/Hyprland.
+O **SDDM** (Simple Desktop Display Manager) foi escolhido por ser leve, amplamente suportado e compatível com Wayland/Hyprland.
 
 ---
 
@@ -33,8 +30,7 @@ sudo pacman -S sddm
 sudo systemctl enable sddm
 ```
 
-O SDDM detecta automaticamente as sessões disponíveis (incluindo Hyprland) através dos arquivos
-`.desktop` em `/usr/share/wayland-sessions/`.
+O SDDM detecta automaticamente as sessões disponíveis (incluindo Hyprland) através dos arquivos `.desktop` em `/usr/share/wayland-sessions/`.
 
 ---
 
@@ -44,8 +40,7 @@ O SDDM detecta automaticamente as sessões disponíveis (incluindo Hyprland) atr
 yay -S catppuccin-sddm-theme-macchiato
 ```
 
-Instala os temas em `/usr/share/sddm/themes/catppuccin-macchiato-*/`.
-Variantes disponíveis por accent: blue, mauve, green, lavender, red, etc.
+Instala os temas em `/usr/share/sddm/themes/catppuccin-macchiato-*/`. Variantes disponíveis por accent: blue, mauve, green, lavender, red, etc.
 
 ---
 
@@ -58,8 +53,7 @@ Variantes disponíveis por accent: blue, mauve, green, lavender, red, etc.
 Current=catppuccin-macchiato-blue
 ```
 
-> **Atenção:** O nome deve ser exatamente igual ao diretório em
-> `/usr/share/sddm/themes/`. O SDDM diferencia maiúsculas de minúsculas.
+> **Atenção:** O nome deve ser exatamente igual ao diretório em `/usr/share/sddm/themes/`. O SDDM diferencia maiúsculas de minúsculas.
 
 ---
 

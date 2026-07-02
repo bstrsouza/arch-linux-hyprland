@@ -1,10 +1,8 @@
 # Quick Start — Do zero ao ambiente funcionando
 
-Este guia assume que você tem o **Arch Linux instalado** com sistema de arquivos
-**BTRFS** e está no TTY pela primeira vez. Siga a ordem abaixo.
+Este guia assume que você tem o **Arch Linux instalado** com sistema de arquivos **BTRFS** e está no TTY pela primeira vez. Siga a ordem abaixo.
 
-> Para dual boot com Windows, consulte a documentação do Arch Wiki sobre
-> particionamento com Windows pré-instalado.
+> Para dual boot com Windows, consulte a documentação do Arch Wiki sobre particionamento com Windows pré-instalado.
 
 ---
 
