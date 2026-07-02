@@ -71,7 +71,11 @@ hl.monitor({
 })
 ```
 
-Escala 1.5x para o display 2880x1800 do Samsung 960XFH.
+Escala 1.5x para o display 2880x1800 do Samsung 960XFH. `output = ""` é uma regra
+coringa — se aplica a qualquer monitor sem uma regra própria, útil como fallback.
+
+> Para configurar múltiplos monitores (posição, resolução por tela, mover
+> workspaces entre monitores), consulte [monitors-setup.md](monitors-setup.md).
 
 ---
 
@@ -198,7 +202,13 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + " .. key,         hl.dsp.focus({ workspace = i }))
     hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
+
+-- Mover workspace entre monitores
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.workspace.move({ monitor = "+1" }))
+hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.workspace.move({ monitor = "-1" }))
 ```
+
+Detalhes sobre múltiplos monitores em [monitors-setup.md](monitors-setup.md).
 
 ---
 

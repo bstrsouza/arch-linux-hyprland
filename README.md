@@ -81,6 +81,7 @@ montar um ambiente Hyprland funcional, bonito e bem documentado.
 | Documento | Descrição |
 |---|---|
 | [Waybar](docs/waybar-setup.md) | Barra de status com todos os módulos configurados |
+| [Monitores](docs/monitors-setup.md) | Múltiplos monitores — posição, escala e mover workspaces entre telas |
 | [Wallpaper](docs/wallpaper-setup.md) | awww (swww) com autostart completo do Hyprland |
 | [Hyprlock](docs/hyprlock-setup.md) | Bloqueio de tela minimalista, atalho `Super + L` |
 | [hypridle](docs/hypridle-setup.md) | Daemon de inatividade — brilho, lock, display, suspend |
@@ -123,6 +124,8 @@ montar um ambiente Hyprland funcional, bonito e bem documentado.
 | `Super + V` | Histórico de clipboard |
 | `Super + 1..9` | Trocar workspace |
 | `Super + Shift + 1..9` | Mover janela para workspace |
+| `Super + Shift + →` | Mover workspace atual para o próximo monitor |
+| `Super + Shift + ←` | Mover workspace atual para o monitor anterior |
 | `Super + S` | Scratchpad (workspace especial) |
 | `Print` | Screenshot de região |
 | `Super + Print` | Screenshot de janela |

@@ -199,3 +199,65 @@ sudo mkinitcpio -P
 ```
 
 Consulte [nvidia-driver-setup.md](docs/nvidia-driver-setup.md) para o processo completo.
+
+---
+
+## hl.monitor — posição explícita ignorada a partir do 2º monitor
+
+**Sintoma:** Ao configurar 3 monitores numa única chamada `hl.monitor({...}, {...}, {...})`,
+apenas a posição (`position`) da primeira tabela é respeitada. As demais são posicionadas como
+se `position = "auto"`, mesmo com coordenadas explícitas definidas — inclusive alterando `scale`
+e o modo de vídeo escolhido pelo Hyprland para o monitor afetado.
+
+**Causa:** Bug/limitação do parser Lua do Hyprland 0.55: múltiplas tabelas passadas na mesma
+chamada de `hl.monitor()` não têm o campo `position` das entradas 2+ processado corretamente.
+
+**Solução:** Fazer uma chamada `hl.monitor()` separada para cada monitor.
+
+```lua
+-- Errado (posição de DP-6 e eDP-1 é ignorada)
+hl.monitor(
+    {output = "DP-5",  mode = "1920x1080@60", position = "0x0",      scale = "1"},
+    {output = "DP-6",  mode = "1920x1080@60", position = "1920x0",   scale = "1"},
+    {output = "eDP-1", mode = "2880x1800@60", position = "960x1080", scale = "1.5"}
+)
+
+-- Correto
+hl.monitor({output = "DP-5",  mode = "1920x1080@60", position = "0x0",      scale = "1"})
+hl.monitor({output = "DP-6",  mode = "1920x1080@60", position = "1920x0",   scale = "1"})
+hl.monitor({output = "eDP-1", mode = "2880x1800@60", position = "960x1080", scale = "1.5"})
+```
+
+---
+
+## Waybar/wallpaper "grudam" na posição antiga ao desconectar um monitor
+
+**Sintoma:** Ao desconectar um monitor externo, o Hyprland reposiciona corretamente
+o(s) monitor(es) restante(s) (`hyprctl monitors` mostra a posição nova), mas a
+Waybar e o wallpaper (`awww-daemon`) continuam renderizados na posição antiga —
+`hyprctl layers` mostra `xywh` com as coordenadas de antes da desconexão. Não se
+autocorrige sozinho, mesmo esperando.
+
+**Causa:** Quando um monitor some e isso muda a posição de outro monitor
+sobrevivente (ex: o laptop se recentraliza depois que os externos saem), o
+Hyprland não força as layer-shell surfaces já abertas nesse monitor (Waybar,
+daemon de wallpaper) a refazer o layout — elas ficam com a geometria antiga até
+algo forçar um reflow. Reproduzido de forma determinística criando/removendo um
+monitor virtual (`hyprctl output create/remove headless`) e reposicionando o
+`eDP-1` via `hl.monitor()` dentro do handler de `monitor.removed`.
+
+**Solução:** Chamar o dispatcher `force_renderer_reload` logo depois de reaplicar
+os `hl.monitor()`, dentro da própria função de layout:
+
+```lua
+local function applyMonitorLayout()
+    -- ... hl.monitor({...}) para cada monitor ...
+    hl.dispatch(hl.dsp.force_renderer_reload())
+end
+```
+
+Um `hyprctl reload` completo também resolve (força um reflow geral), mas
+`force_renderer_reload()` é mais leve e pode ser disparado automaticamente
+dentro dos handlers `hl.on("monitor.added"/"monitor.removed", ...)`.
+
+Ver também [monitors-setup.md](docs/monitors-setup.md).
