@@ -89,6 +89,7 @@ Este repositório documenta a configuração completa de um ambiente Linux profi
 | [Wofi](docs/wofi-setup.md) | App launcher e seletor de clipboard, atalho `Super + R` |
 | [Thunar](docs/thunar-setup.md) | Gerenciador de arquivos, atalho `Super + E` |
 | [Zsh + Starship](docs/zsh-setup.md) | Shell com autocompletar, syntax highlighting e prompt |
+| [WhatsApp (Chromium)](docs/whatsapp-chromium-setup.md) | Duas contas isoladas via perfis Chromium, atalhos `Super + W` / `Super + Shift + W` |
 
 ### Utilitários
 
@@ -116,6 +117,8 @@ Este repositório documenta a configuração completa de um ambiente Linux profi
 | `Super + Shift + F` | Fullscreen |
 | `Super + J` | Alternar split do layout (dwindle) |
 | `Super + V` | Histórico de clipboard |
+| `Super + W` | WhatsApp — WA Personal |
+| `Super + Shift + W` | WhatsApp — WA Work |
 | `Super + 1..9` | Trocar workspace |
 | `Super + Shift + 1..9` | Mover janela para workspace |
 | `Super + Shift + →` | Mover workspace atual para o próximo monitor |
@@ -165,6 +168,7 @@ sudo pacman -S swaync
 sudo pacman -S kitty
 sudo pacman -S wofi wl-clipboard cliphist wtype
 sudo pacman -S thunar
+sudo pacman -S chromium
 sudo pacman -S zsh starship zsh-autosuggestions zsh-syntax-highlighting
 sudo pacman -S blueman pavucontrol nm-connection-editor
 sudo pacman -S swww
