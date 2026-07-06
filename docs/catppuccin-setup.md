@@ -141,14 +141,53 @@ CSS em `~/.config/wofi/style.css` com cores Catppuccin Macchiato. Consulte `wofi
 
 ---
 
+### 9. Dark mode do sistema — xdg-desktop-portal
+
+O `gtk-application-prefer-dark-theme=true` no `settings.ini` (seção 2) só afeta apps GTK que leem esse arquivo diretamente. Apps que se anunciam via **portal** (Chromium, Electron, GTK4 sem fallback, etc.) consultam o **xdg-desktop-portal** (interface `org.freedesktop.impl.portal.Settings`, chave `org.freedesktop.appearance color-scheme`), que por sua vez é respondida pelo `xdg-desktop-portal-gtk` lendo o **gsettings/dconf** — uma fonte separada do `settings.ini`.
+
+Sem esse ajuste, esses apps continuam abrindo em tema claro mesmo com o GTK todo em dark mode. Fix:
+
+```bash
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.interface gtk-theme 'catppuccin-macchiato-blue-standard+default'
+```
+
+Verificar o valor que o portal está reportando:
+
+```bash
+busctl --user call org.freedesktop.portal.Desktop /org/freedesktop/portal/desktop \
+  org.freedesktop.portal.Settings ReadOne ss "org.freedesktop.appearance" "color-scheme"
+# v u 1  →  1 = prefer-dark (0 = sem preferência, 2 = prefer-light)
+```
+
+Como gsettings/dconf é armazenado em `~/.config/dconf/user` (persiste sozinho entre reboots), o `~/.config/hypr/hyprland.lua` reaplica esses dois comandos a cada start do Hyprland (seção `DARK MODE`, via `hl.on("hyprland.start", ...)`) — defensivo para o caso de uma máquina nova ainda sem o dconf configurado:
+
+```lua
+-------------------
+---- DARK MODE ----
+-------------------
+
+hl.env("GTK_THEME", "catppuccin-macchiato-blue-standard+default")
+
+hl.on("hyprland.start", function ()
+    hl.exec_cmd("gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'")
+    hl.exec_cmd("gsettings set org.gnome.desktop.interface gtk-theme 'catppuccin-macchiato-blue-standard+default'")
+end)
+```
+
+> Testado com Chromium: abrir uma página e checar `window.matchMedia('(prefers-color-scheme: dark)').matches` — passa a retornar `true` assim que o portal reporta `prefer-dark`, sem precisar de nenhuma flag na linha de comando.
+
+---
+
 ## Resumo de arquivos modificados
 
 | Arquivo | Alteração |
 |---|---|
-| `~/.config/hypr/hyprland.lua` | Bordas Mauve + Blue |
+| `~/.config/hypr/hyprland.lua` | Bordas Mauve + Blue; seção `DARK MODE` (gsettings + `GTK_THEME`) |
 | `~/.config/gtk-3.0/settings.ini` | Tema GTK Macchiato Blue |
 | `~/.config/gtk-4.0/settings.ini` | Tema GTK Macchiato Blue |
 | `/etc/sddm.conf` | Tema SDDM Macchiato Blue |
 | `~/.config/swaync/style.css` | CSS Catppuccin Macchiato |
 | `~/.config/wlogout/style.css` | CSS Catppuccin Macchiato |
 | `~/.config/wofi/style.css` | CSS Catppuccin Macchiato |
+| gsettings/dconf (`org.gnome.desktop.interface`) | `color-scheme=prefer-dark`, `gtk-theme` Macchiato Blue — usado pelo xdg-desktop-portal-gtk |
