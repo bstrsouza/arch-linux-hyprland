@@ -99,6 +99,7 @@ Este repositório documenta a configuração completa de um ambiente Linux profi
 | [Clipboard](docs/clipboard-setup.md) | cliphist + wofi + wtype — histórico com `Super + Shift + V` |
 | [Polkit Agent](docs/polkit-setup.md) | polkit-gnome — janela de autenticação para apps gráficos |
 | [Impressora](docs/printer-setup.md) | CUPS + driver Samsung — USB e rede corporativa |
+| [Webcam](docs/webcam-setup.md) | Intel IPU6 + OV02C10 — patches DKMS de clock/rotação, libcamera + PipeWire; qualidade de imagem é limitação conhecida |
 | [Timeshift](docs/timeshift-setup.md) | Snapshots BTRFS automáticos — diário, semanal e mensal |
 
 ---

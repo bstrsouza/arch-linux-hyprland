@@ -241,3 +241,15 @@ end
 Um `hyprctl reload` completo também resolve (força um reflow geral), mas `force_renderer_reload()` é mais leve e pode ser disparado automaticamente dentro dos handlers `hl.on("monitor.added"/"monitor.removed", ...)`.
 
 Ver também [monitors-setup.md](docs/monitors-setup.md).
+
+---
+
+## Webcam (IPU6 + OV02C10) — qualidade de imagem ruim mesmo após todos os fixes
+
+**Sintoma:** Câmera não era detectada de jeito nenhum (`external clock 26000000 is not supported` no dmesg). Depois de corrigida, funciona para videochamadas mas a imagem sai enevoada/com baixo contraste, lembrando uma câmera analógica antiga.
+
+**Causa:** Clock do sensor (26 MHz, driver só aceitava 19.2 MHz) e rotação invertida — resolvidos via patches DKMS da comunidade. A qualidade de imagem, porém, é limitação de hardware/driver: o sensor opera perto do ganho máximo mesmo com boa luz, e o `libcamera` não tem calibração própria para o OV02C10 (só uma tuning genérica). Uma segunda tentativa usando a pilha proprietária da Intel (`icamerasrc`/`libcamhal`) travou numa inconsistência interna da própria HAL (rejeita todas as resoluções, mesmo as listadas como suportadas) e foi abandonada.
+
+**Status:** Câmera funcional (driver + pipeline corrigidos), qualidade de imagem aceita como está — sem solução via software conhecida no momento.
+
+Ver também [webcam-setup.md](docs/webcam-setup.md).
