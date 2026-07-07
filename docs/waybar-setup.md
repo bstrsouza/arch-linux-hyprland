@@ -175,7 +175,9 @@ hl.window_rule({
 ---
 
 ### network
-Exibe ícone WiFi e intensidade do sinal. Tooltip mostra nome da rede e gateway. Abre o `nm-connection-editor` ao clicar.
+Exibe ícone WiFi e intensidade do sinal. Tooltip mostra nome da rede e gateway.
+
+Clique esquerdo abre o `networkmanager_dmenu` (lista redes WiFi e conexões VPN/Wireguard já configuradas, com opção de **conectar/desconectar**). Clique direito abre o `nm-connection-editor`, usado apenas para criar/editar/excluir perfis de conexão — ele **não** tem opção de conectar/desconectar, por isso não serve sozinho para esse fim.
 
 ```jsonc
 "network": {
@@ -184,11 +186,20 @@ Exibe ícone WiFi e intensidade do sinal. Tooltip mostra nome da rede e gateway.
     "format-linked": "󰈀 (No IP)",
     "format-disconnected": "󰖪",
     "tooltip-format": "{essid} - {ifname} via {gwaddr}",
-    "on-click": "nm-connection-editor"
+    "on-click": "networkmanager_dmenu",
+    "on-click-right": "nm-connection-editor"
 }
 ```
 
-**Dependência:** `nm-connection-editor`
+**Dependências:** `nm-connection-editor`, `networkmanager-dmenu`
+
+**Config do networkmanager-dmenu** (`~/.config/networkmanager-dmenu/config.ini`), para usar o `wofi` no lugar do `dmenu` padrão:
+
+```ini
+[dmenu]
+dmenu_command = wofi --dmenu -i
+highlight = True
+```
 
 **Window rule** (janela flutuante centralizada):
 ```lua
@@ -247,6 +258,6 @@ Botão de energia que abre o `wlogout` em modo compacto horizontal com 4 opçõe
 ## Pacotes instalados nesta configuração
 
 ```bash
-sudo pacman -S blueman pavucontrol nm-connection-editor hyprlock wofi
+sudo pacman -S blueman pavucontrol nm-connection-editor hyprlock wofi networkmanager-dmenu
 yay -S spotify wlogout
 ```
