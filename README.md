@@ -49,6 +49,7 @@ Este repositório documenta a configuração completa de um ambiente Linux profi
 | [QUICKSTART.md](QUICKSTART.md) | Instalação do zero — sequência completa passo a passo |
 | [TROUBLESHOOTING.md](TROUBLESHOOTING.md) | Algo não funcionou — problemas conhecidos e soluções |
 | [README.md](README.md) | Visão geral, índice completo e referência rápida |
+| [dotfiles/](dotfiles/) | Cópia pronta dos arquivos de configuração — copie direto para `~/.config/` (ver Etapa 10 do QUICKSTART) |
 
 ---
 
@@ -115,17 +116,22 @@ Este repositório documenta a configuração completa de um ambiente Linux profi
 | `Super + Q` | Fechar janela |
 | `Super + L` | Bloquear tela (hyprlock) |
 | `Super + N` | Painel de notificações (swaync) |
+| `Super + P` | Alternar pseudo-tiling |
 | `Super + F` | Alternar janela flutuante |
 | `Super + Shift + F` | Fullscreen |
 | `Super + J` | Alternar split do layout (dwindle) |
+| `Super + LMB` (arrastando) | Mover janela |
+| `Super + RMB` (arrastando) | Redimensionar janela |
 | `Super + V` | Histórico de clipboard |
 | `Super + W` | WhatsApp — WA Personal |
 | `Super + Shift + W` | WhatsApp — WA Work |
 | `Super + 1..9` | Trocar workspace |
 | `Super + Shift + 1..9` | Mover janela para workspace |
+| `Super + Scroll` | Navegar entre workspaces |
 | `Super + Shift + →` | Mover workspace atual para o próximo monitor |
 | `Super + Shift + ←` | Mover workspace atual para o monitor anterior |
 | `Super + S` | Scratchpad (workspace especial) |
+| `Super + Shift + S` | Mover janela para o scratchpad |
 | `Print` | Screenshot de região |
 | `Super + Print` | Screenshot de janela |
 | `Shift + Print` | Screenshot de monitor |
@@ -168,6 +174,7 @@ sudo pacman -S hyprlock hypridle hyprshot
 sudo pacman -S waybar
 sudo pacman -S swaync
 sudo pacman -S kitty
+sudo pacman -S ttf-jetbrains-mono-nerd # fonte usada em kitty, hyprlock, wofi, waybar e no preset do Starship
 sudo pacman -S wofi wl-clipboard cliphist wtype
 sudo pacman -S thunar
 sudo pacman -S chromium

@@ -104,6 +104,7 @@ Configure `~/.zshrc`. Consulte [zsh-setup.md](docs/zsh-setup.md) para detalhes.
 ```bash
 sudo pacman -S waybar swaync hyprlock hypridle hyprshot
 sudo pacman -S kitty wofi wl-clipboard cliphist wtype
+sudo pacman -S ttf-jetbrains-mono-nerd # fonte usada em kitty, hyprlock, wofi, waybar e no preset do Starship
 sudo pacman -S thunar swww
 sudo pacman -S blueman pavucontrol nm-connection-editor
 sudo pacman -S brightnessctl playerctl
