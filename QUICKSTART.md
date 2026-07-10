@@ -149,21 +149,41 @@ sudo pacman -S timeshift
 
 ## Etapa 10 — Configurar arquivos
 
-Copie ou adapte os arquivos de configuração deste repositório para `~/.config/`:
+Copie ou adapte os arquivos de configuração deste repositório para `~/.config/` (e `~/.zshrc`):
 
 ```
+# Hyprland
 ~/.config/hypr/hyprland.lua
 ~/.config/hypr/hyprlock.conf
 ~/.config/hypr/hypridle.conf
+
+# Waybar
 ~/.config/waybar/config.jsonc
 ~/.config/waybar/style.css
+~/.config/networkmanager-dmenu/config.ini
+
+# Kitty
 ~/.config/kitty/kitty.conf
+~/.config/kitty/current-theme.conf
+
+# swaync, Wofi, wlogout
 ~/.config/swaync/style.css
 ~/.config/wofi/config
 ~/.config/wofi/style.css
 ~/.config/wlogout/layout
 ~/.config/wlogout/style.css
+
+# Tema GTK / Catppuccin (ver catppuccin-setup.md)
+~/.config/gtk-3.0/settings.ini
+~/.config/gtk-4.0/settings.ini
+~/.config/dconf/user
+
+# Shell
+~/.zshrc
+~/.config/starship.toml
 ```
+
+> Arquivos de sistema (`/etc/sddm.conf`, `/etc/mkinitcpio.conf`, `/etc/kernel/cmdline` etc.) já foram tratados nas etapas 3 e 5. O webcam Intel IPU6/OV02C10 tem seu próprio conjunto de arquivos em `/etc/` — só se aplica a esse hardware específico, veja [webcam-setup.md](docs/webcam-setup.md).
 
 ---
 

@@ -1,0 +1,87 @@
+/* Catppuccin Macchiato */
+* {
+    background-image: none;
+    box-shadow: none;
+}
+
+window {
+    background-color: rgba(24, 25, 38, 0.9);
+}
+
+button {
+    background-color: rgba(54, 58, 79, 0.8);
+    border: 2px solid rgba(110, 115, 141, 0.4);
+    border-radius: 12px;
+    color: #cad3f5;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+button:hover {
+    background-color: rgba(73, 77, 100, 0.95);
+    border-color: rgba(198, 160, 246, 0.8);
+    color: #cad3f5;
+}
+
+button:focus {
+    background-color: rgba(73, 77, 100, 0.95);
+    border-color: rgba(138, 173, 244, 0.9);
+}
+
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-size: 64px 64px;
+}
+
+#lock:hover {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-size: 64px 64px;
+}
+
+#suspend {
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-size: 64px 64px;
+}
+
+#suspend:hover {
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-size: 64px 64px;
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-size: 64px 64px;
+}
+
+#reboot:hover {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-size: 64px 64px;
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-size: 64px 64px;
+}
+
+#shutdown:hover {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-size: 64px 64px;
+}

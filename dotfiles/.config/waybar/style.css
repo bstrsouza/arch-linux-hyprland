@@ -1,0 +1,157 @@
+/* Definição de Cores Catppuccin Macchiato */
+@define-color base     #24273a;
+@define-color mantle   #1e2030;
+@define-color crust    #181926;
+@define-color text     #cad3f5;
+@define-color mauve    #c6a0f6;
+@define-color red      #ed8796;
+@define-color peach    #f5a97f;
+@define-color yellow   #eed49f;
+@define-color green    #a6da95;
+@define-color blue     #8aadf4;
+@define-color lavender #b7bdf8;
+@define-color surface0 #363a4f;
+@define-color arch #1793d1;
+
+* {
+    font-family: "JetBrainsMono Nerd Font", Roboto, sans-serif;
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+}
+
+window#waybar {
+    background-color: rgba(36, 39, 58, 0.8); /* Base com transparência */
+    color: @text;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+/* Estilização dos Módulos em formato de "Pill" */
+#workspaces,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#language,
+#tray,
+#custom-media,
+#custom-power {
+    padding: 0 12px;
+    margin: 4px 4px;
+    border-radius: 10px;
+    background-color: @surface0;
+}
+
+/* Cores específicas para cada módulo */
+#workspaces button {
+    padding: 0 5px;
+    color: @blue;
+}
+
+#workspaces button.active {
+    color: @blue;
+    background-color: @base;
+    border-bottom: 2px solid @blue;
+}
+
+#workspaces button.urgent {
+    background-color: @red;
+    color: @base;
+}
+
+#clock {
+    color: @lavender;
+    background-color: @base;
+    font-weight: bold;
+    padding: 0 15px;
+    margin: 4px 20px;
+    border-radius: 8px;
+}
+
+#battery { color: @green; }
+#battery.critical:not(.charging) {
+    background-color: @red;
+    color: @base;
+    animation: blink 0.5s steps(12) infinite alternate;
+}
+
+#cpu { color: @blue; }
+#memory { color: @mauve; }
+#pulseaudio { color: @peach; }
+#language { color: @blue; }
+
+#bluetooth {
+    color: @blue;
+    background-color: @surface0;
+    padding: 0 12px;
+    margin: 4px 2px;
+    border-radius: 8px;
+}
+
+/* Cor quando estiver inativo/desligado */
+#bluetooth.disabled {
+    color: @blue;
+    background-color: @base; /* Fica mais discreto quando desligado */
+}
+
+/* Cor quando estiver conectado */
+#bluetooth.connected {
+    color: @blue; /* Muda para lilás quando conectado a algo */
+}
+
+#network {
+    color: @yellow;
+    background-color: @surface0;
+    /* padding: 0 15px;
+    margin: 4px 2px; */
+    border-radius: 8px;
+}
+
+#custom-menu {
+    color: @arch;
+    /* background-color: @surface0; */
+    padding: 0 10px;
+    margin: 0 10px;
+    border-radius: 8px; /* Arredondado completo */
+}
+
+#custom-spotify {
+    color: @green; /* Verde característico do Spotify */
+    background-color: @surface0;
+    padding: 0 10px;
+    margin: 4px 0px;
+    border-radius: 8px; /* Arredondado só na esquerda */
+}
+
+/* Efeito ao passar o mouse no botão */
+#custom-playerctl:hover {
+    background-color: @mauve;
+    color: @base;
+}
+
+#custom-power {
+    color: @red;
+    background-color: @surface0;
+    padding: 0 15px;
+    margin: 4px 5px 4px 2px;
+    border-radius: 10px; /* Igual ao #workspaces e outros módulos */
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+/* Efeito de hover para o botão de energia */
+#custom-power:hover {
+    background-color: @red;
+    color: @base;
+}
+
+@keyframes blink {
+    to {
+        background-color: @text;
+        color: @red;
+    }
+}

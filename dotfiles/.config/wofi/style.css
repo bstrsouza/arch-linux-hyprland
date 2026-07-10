@@ -1,0 +1,63 @@
+/* Catppuccin Macchiato */
+* {
+    font-family: "JetBrainsMono Nerd Font", monospace;
+    font-size: 14px;
+}
+
+window {
+    background-color: rgba(24, 25, 38, 0.95);
+    border: 1px solid rgba(110, 115, 141, 0.4);
+    border-radius: 12px;
+}
+
+#input {
+    background-color: rgba(54, 58, 79, 0.8);
+    color: #cad3f5;
+    border: 1px solid rgba(110, 115, 141, 0.4);
+    border-radius: 8px;
+    padding: 8px 12px;
+    margin: 8px;
+    outline: none;
+}
+
+#input:focus {
+    border-color: rgba(138, 173, 244, 0.8);
+}
+
+#inner-box {
+    background-color: transparent;
+    margin: 0 8px 8px 8px;
+}
+
+#outer-box {
+    background-color: transparent;
+    padding: 4px;
+}
+
+#scroll {
+    background-color: transparent;
+}
+
+#text {
+    color: #cad3f5;
+    padding: 4px 8px;
+}
+
+#text:selected {
+    color: #24273a;
+}
+
+#entry {
+    background-color: transparent;
+    border-radius: 8px;
+    padding: 4px;
+}
+
+#entry:selected {
+    background-color: #8aadf4;
+    border-radius: 8px;
+}
+
+#entry:selected #text {
+    color: #24273a;
+}
