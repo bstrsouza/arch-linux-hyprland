@@ -78,13 +78,15 @@ hl.window_rule({
 
 Dois arquivos `.desktop` em `~/.local/share/applications/`, para aparecerem no launcher (`Super + R`) como **WA Personal** e **WA Work**:
 
+> `Exec=` em arquivos `.desktop` não expande `$HOME`/`~`, então o caminho precisa ser absoluto — troque `/home/SEU_USUARIO` pelo seu usuário real.
+
 **`whatsapp1.desktop`:**
 ```ini
 [Desktop Entry]
 Type=Application
 Name=WA Personal
 Comment=WhatsApp Web - conta pessoal
-Exec=chromium --app=https://web.whatsapp.com --force-dark-mode --user-data-dir=/home/bruno/.config/chromium-whatsapp1 --profile-directory=Personal
+Exec=chromium --app=https://web.whatsapp.com --force-dark-mode --user-data-dir=/home/SEU_USUARIO/.config/chromium-whatsapp1 --profile-directory=Personal
 Icon=whatsapp
 Terminal=false
 StartupWMClass=chrome-web.whatsapp.com__-Personal
