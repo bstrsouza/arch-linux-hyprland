@@ -12,6 +12,8 @@ Este repositório documenta a configuração completa de um ambiente Linux profi
 
 **Público-alvo:** Usuários iniciantes a intermediários do Linux que queiram montar um ambiente Hyprland funcional, bonito e bem documentado.
 
+> Parte da documentação deste repositório é redigida e revisada com apoio do [Claude Code](https://claude.com/claude-code). As decisões técnicas, testes e configurações são sempre feitos e validados por mim.
+
 ---
 
 ## O que você vai ter ao final
