@@ -184,7 +184,7 @@ Copie ou adapte os arquivos de configuração deste repositório para `~/.config
 ~/.config/starship.toml
 ```
 
-> Arquivos de sistema (`/etc/sddm.conf`, `/etc/mkinitcpio.conf`, `/etc/kernel/cmdline` etc.) já foram tratados nas etapas 3 e 5. O webcam Intel IPU6/OV02C10 tem seu próprio conjunto de arquivos em `/etc/` — só se aplica a esse hardware específico, veja [webcam-setup.md](docs/webcam-setup.md).
+> Arquivos de sistema (`/etc/sddm.conf`, `/etc/mkinitcpio.conf`, `/etc/kernel/cmdline` etc.) já foram tratados nas etapas 3 e 5. O webcam Intel IPU6/OV02C10 e o parâmetro de kernel para brilho da tela (`i915.enable_dpcd_backlight`) só se aplicam a esse hardware específico — veja [webcam-setup.md](docs/webcam-setup.md) e [brightness-setup.md](docs/brightness-setup.md).
 
 ---
 

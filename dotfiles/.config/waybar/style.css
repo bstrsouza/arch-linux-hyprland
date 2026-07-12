@@ -83,6 +83,7 @@ window#waybar {
 #memory { color: @mauve; }
 #pulseaudio { color: @peach; }
 #language { color: @blue; }
+#backlight { color: @text; }
 
 #bluetooth {
     color: @blue;

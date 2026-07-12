@@ -101,6 +101,7 @@ Este repositório documenta a configuração completa de um ambiente Linux profi
 | [Polkit Agent](docs/polkit-setup.md) | polkit-gnome — janela de autenticação para apps gráficos |
 | [Impressora](docs/printer-setup.md) | CUPS + driver Samsung — USB e rede corporativa |
 | [Webcam](docs/webcam-setup.md) | Intel IPU6 + OV02C10 — patches DKMS de clock/rotação, libcamera + PipeWire; qualidade de imagem é limitação conhecida |
+| [Brilho da tela](docs/brightness-setup.md) | Atalhos `Fn+F2`/`Fn+F3`, indicador na Waybar e fix de kernel `i915.enable_dpcd_backlight` |
 | [Timeshift](docs/timeshift-setup.md) | Snapshots BTRFS automáticos — diário, semanal e mensal |
 | [VPN (OpenVPN)](docs/vpn-openvpn-setup.md) | NetworkManager + plugin OpenVPN — import de `.ovpn`, conectar/desconectar via waybar |
 

@@ -253,3 +253,17 @@ Ver também [monitors-setup.md](docs/monitors-setup.md).
 **Status:** Câmera funcional (driver + pipeline corrigidos), qualidade de imagem aceita como está — sem solução via software conhecida no momento.
 
 Ver também [webcam-setup.md](docs/webcam-setup.md).
+
+---
+
+## Brilho da tela — atalhos e Waybar mudam o valor, mas a tela não responde
+
+**Sintoma:** `Fn+F2`/`Fn+F3` e o indicador da Waybar mudam o percentual normalmente (confirmado em `/sys/class/backlight/intel_backlight/brightness` e via `brightnessctl -l`), mas a tela não fica visivelmente mais clara ou escura — nem em teste extremo (100% → 1%).
+
+**Causa:** O driver `i915` não habilitava por padrão o controle de brilho via DPCD/AUX (canal auxiliar do DisplayPort), que é como esse painel eDP específico espera receber os comandos de brilho. A GPU híbrida (Intel + NVIDIA) e o driver `samsung_galaxybook` foram descartados como causa — o painel está mesmo ligado à Intel, e aquele driver não gerencia brilho de painel.
+
+**Solução:** Parâmetro de kernel `i915.enable_dpcd_backlight=3` (força interface proprietária Intel) em `/etc/kernel/cmdline`, seguido de `sudo mkinitcpio -P` e reboot. Os valores `1` e `2` (auto e força VESA) foram testados antes e não tiveram efeito nesse hardware.
+
+Ver também [brightness-setup.md](docs/brightness-setup.md).
+
+Ver também [webcam-setup.md](docs/webcam-setup.md).

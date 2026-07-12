@@ -17,10 +17,10 @@
         "bluetooth",
         "pulseaudio",
         "network",
+        "backlight",
         // "cpu",
         // "memory",
         // "temperature",
-        // "backlight",
         "battery",
         // "group/power"
         "custom/power"
@@ -101,6 +101,13 @@
         "tooltip-format": "{essid} - {ifname} via {gwaddr}",
         "on-click": "networkmanager_dmenu",
         "on-click-right": "nm-connection-editor"
+    },
+
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "tooltip-format": "Brilho: {percent}%"
     },
 
     "custom/power": {

@@ -21,7 +21,7 @@ end)
 ## Estrutura dos módulos
 
 ```
-[  workspaces  |  janela ativa  ]  [  relógio  ]  [  spotify | bt | vol | wifi | bat |  ]
+[  workspaces  |  janela ativa  ]  [  relógio  ]  [  spotify | bt | vol | wifi | brilho | bat |  ]
        esquerda                        centro                      direita
 ```
 
@@ -214,6 +214,24 @@ hl.window_rule({
 
 ---
 
+### backlight
+Exibe ícone e percentual de brilho da tela. Scroll do mouse sobre o ícone ajusta o brilho (suporte nativo do módulo).
+
+```jsonc
+"backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "tooltip-format": "Brilho: {percent}%"
+}
+```
+
+**Dependência:** `brightnessctl` (só para os atalhos de teclado — o módulo em si lê o sysfs direto)
+
+> Ver [brightness-setup.md](brightness-setup.md) para o fix de kernel necessário nesse hardware (`i915.enable_dpcd_backlight`) — sem ele, o valor muda no sysfs/Waybar mas não tem efeito físico na tela.
+
+---
+
 ### battery
 Exibe ícone dinâmico e percentual de carga. Alerta visual em vermelho com animação piscante abaixo de 15%.
 
@@ -258,6 +276,6 @@ Botão de energia que abre o `wlogout` em modo compacto horizontal com 4 opçõe
 ## Pacotes instalados nesta configuração
 
 ```bash
-sudo pacman -S blueman pavucontrol nm-connection-editor hyprlock wofi networkmanager-dmenu
+sudo pacman -S blueman pavucontrol nm-connection-editor hyprlock wofi networkmanager-dmenu brightnessctl
 yay -S spotify wlogout
 ```
