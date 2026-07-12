@@ -267,3 +267,15 @@ Ver também [webcam-setup.md](docs/webcam-setup.md).
 Ver também [brightness-setup.md](docs/brightness-setup.md).
 
 Ver também [webcam-setup.md](docs/webcam-setup.md).
+
+---
+
+## Touchpad para de responder de forma intermitente entre boots
+
+**Sintoma:** O touchpad interno simplesmente para de gerar eventos de cursor — em alguns boots funciona normalmente, em outros falha já na inicialização. Não é configuração: nenhuma regra do Hyprland/udev/systemd desabilita o dispositivo.
+
+**Causa:** Race condition de timing entre o kernel e o firmware do controlador I2C (`i2c_designware.1`) durante a enumeração do touchpad (ACPI HID `IMG4100:00`) no boot — aparece como `controller timed out` ou como HID descriptor corrompido (`incomplete report`), dependendo do boot. Reproduzido de forma idêntica em dois kernels diferentes (`7.1.2-arch3-1` e `7.1.3-arch1-2`), descartando regressão de atualização de pacote. Hardware fisicamente funcional (IRQ dispara ao toque mesmo com o driver sem vincular).
+
+**Status:** Sem solução conhecida — nenhum fix documentado para esse hardware específico foi encontrado. Mouse externo como workaround definitivo.
+
+Ver também [touchpad-issue.md](docs/touchpad-issue.md).

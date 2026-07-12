@@ -106,6 +106,7 @@ Este repositório documenta a configuração completa de um ambiente Linux profi
 | [Brilho da tela](docs/brightness-setup.md) | Atalhos `Fn+F2`/`Fn+F3`, indicador na Waybar e fix de kernel `i915.enable_dpcd_backlight` |
 | [Timeshift](docs/timeshift-setup.md) | Snapshots BTRFS automáticos — diário, semanal e mensal |
 | [VPN (OpenVPN)](docs/vpn-openvpn-setup.md) | NetworkManager + plugin OpenVPN — import de `.ovpn`, conectar/desconectar via waybar |
+| [Touchpad](docs/touchpad-issue.md) | Falha intermitente de I2C HID (`IMG4100`) no boot — diagnóstico, sem solução conhecida, mouse externo como workaround |
 
 ---
 
