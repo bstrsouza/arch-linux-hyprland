@@ -67,6 +67,7 @@ Exibe os workspaces ativos com ícones diferenciados por estado.
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
+        "0": "",
         "active": "",
         "default": "",
         "urgent": "󰀦"
@@ -74,7 +75,7 @@ Exibe os workspaces ativos com ícones diferenciados por estado.
 }
 ```
 
-> **Problema conhecido:** o clique para trocar de workspace via mouse não funciona no Waybar 0.15.0 com Hyprland 0.55. O módulo interno usa `dispatch workspace X` (formato antigo) para comunicação via socket, que foi descontinuado no Hyprland 0.55. A troca por teclado (`Super + N`) funciona normalmente. Resolver após atualização do Waybar.
+> **Problema conhecido:** o clique para trocar de workspace via mouse não funciona no Waybar 0.15.0 com Hyprland 0.55. O módulo interno usa `dispatch workspace X` (formato antigo) para comunicação via socket, que foi descontinuado no Hyprland 0.55. A troca por teclado (`Super + 1..9`) funciona normalmente. Resolver após atualização do Waybar.
 
 ---
 
@@ -128,6 +129,9 @@ Exibe ícone de bluetooth com estado (conectado / desconectado / desligado). Abr
     "format": "󰂯",
     "format-disabled": "󰂲",
     "format-connected": "󰂱",
+    "tooltip-format": "{controller_alias}\t{controller_address}",
+    "tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
     "on-click": "blueman-manager"
 }
 ```

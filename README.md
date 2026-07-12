@@ -115,12 +115,14 @@ Este repositório documenta a configuração completa de um ambiente Linux profi
 | `Super + R` | Abrir launcher (wofi) |
 | `Super + E` | Abrir gerenciador de arquivos (Thunar) |
 | `Super + Q` | Fechar janela |
+| `Super + M` | Abre `hyprshutdown` (ou encerra a sessão do Hyprland, se não instalado) |
 | `Super + L` | Bloquear tela (hyprlock) |
 | `Super + N` | Painel de notificações (swaync) |
 | `Super + P` | Alternar pseudo-tiling |
 | `Super + F` | Alternar janela flutuante |
 | `Super + Shift + F` | Fullscreen |
 | `Super + J` | Alternar split do layout (dwindle) |
+| `Super + ←/→/↑/↓` | Mover foco entre janelas |
 | `Super + LMB` (arrastando) | Mover janela |
 | `Super + RMB` (arrastando) | Redimensionar janela |
 | `Super + V` | Histórico de clipboard |
@@ -136,6 +138,11 @@ Este repositório documenta a configuração completa de um ambiente Linux profi
 | `Print` | Screenshot de região |
 | `Super + Print` | Screenshot de janela |
 | `Shift + Print` | Screenshot de monitor |
+| `XF86AudioRaiseVolume` / `LowerVolume` | Volume +5% / -5% |
+| `XF86AudioMute` | Mutar áudio |
+| `XF86AudioMicMute` | Mutar microfone |
+| `XF86MonBrightnessUp` / `Down` (`Fn+F3`/`Fn+F2`) | Brilho +5% / -5% — ver [brightness-setup.md](docs/brightness-setup.md) |
+| `XF86AudioNext` / `Prev` / `Pause`/`Play` | Controle de mídia (playerctl) |
 
 ---
 
@@ -180,11 +187,12 @@ sudo pacman -S wofi wl-clipboard cliphist wtype
 sudo pacman -S thunar
 sudo pacman -S chromium
 sudo pacman -S zsh starship zsh-autosuggestions zsh-syntax-highlighting
-sudo pacman -S blueman pavucontrol nm-connection-editor
+sudo pacman -S blueman pavucontrol nm-connection-editor networkmanager-dmenu
 sudo pacman -S swww
 sudo pacman -S polkit-gnome
 sudo pacman -S cups cups-pdf ghostscript gsfonts
 sudo pacman -S timeshift
+sudo pacman -S openvpn networkmanager-openvpn
 sudo pacman -S brightnessctl playerctl
 sudo pacman -S usbutils
 ```

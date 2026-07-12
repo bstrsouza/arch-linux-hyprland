@@ -17,8 +17,8 @@ Os atalhos físicos de brilho (`Fn+F2` diminuir, `Fn+F3` aumentar) e o indicador
 1. **Binds já existiam e estavam corretos.** `Fn+F2`/`Fn+F3` são traduzidos pelo firmware do teclado diretamente para os keysyms padrão `XF86MonBrightnessDown`/`XF86MonBrightnessUp` — não é necessário nenhum bind extra além do que já está em `hyprland.lua`:
 
    ```lua
-   hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
-   hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
+   hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl -n2 set 5%+"), { locked = true, repeating = true })
+   hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -n2 set 5%-"), { locked = true, repeating = true })
    ```
 
    Confirmado com `hyprctl binds` (os dois binds aparecem registrados) e com `brightnessctl -l` (o valor de `intel_backlight` muda a cada tecla pressionada).

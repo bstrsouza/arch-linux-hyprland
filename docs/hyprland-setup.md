@@ -56,16 +56,7 @@ O Hyprland cria um arquivo de exemplo na primeira execução. A estrutura básic
 
 ### Monitor
 
-```lua
-hl.monitor({
-    output   = "",
-    mode     = "2880x1800",
-    position = "auto",
-    scale    = "1.5",
-})
-```
-
-Escala 1.5x para o display 2880x1800 do Samsung 960XFH. `output = ""` é uma regra coringa — se aplica a qualquer monitor sem uma regra própria, útil como fallback.
+A configuração evoluiu de uma regra coringa única para uma função `applyMonitorLayout()` que trata o layout dinâmico com múltiplos monitores (DP-5, DP-6, eDP-1) e replug. Ver [monitors-setup.md](monitors-setup.md) para a versão atual e detalhada.
 
 > Para configurar múltiplos monitores (posição, resolução por tela, mover workspaces entre monitores), consulte [monitors-setup.md](monitors-setup.md).
 

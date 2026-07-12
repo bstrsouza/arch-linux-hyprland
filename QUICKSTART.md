@@ -106,9 +106,10 @@ sudo pacman -S waybar swaync hyprlock hypridle hyprshot
 sudo pacman -S kitty wofi wl-clipboard cliphist wtype
 sudo pacman -S ttf-jetbrains-mono-nerd # fonte usada em kitty, hyprlock, wofi, waybar e no preset do Starship
 sudo pacman -S thunar swww
-sudo pacman -S blueman pavucontrol nm-connection-editor
+sudo pacman -S blueman pavucontrol nm-connection-editor networkmanager-dmenu
 sudo pacman -S brightnessctl playerctl
 sudo pacman -S polkit-gnome
+sudo pacman -S chromium # WhatsApp Web isolado em duas contas, ver Etapa 9
 yay -S wlogout spotify
 ```
 
@@ -144,7 +145,23 @@ yay -S samsung-unified-driver-printer   # se tiver impressora Samsung
 # Backup
 sudo pacman -S timeshift
 # Abra timeshift-launcher, selecione BTRFS e configure o agendamento
+
+# VPN (OpenVPN)
+sudo pacman -S openvpn networkmanager-openvpn
+sudo systemctl restart NetworkManager
+# Importe o .ovpn pelo nm-connection-editor ou networkmanager_dmenu (waybar)
 ```
+
+Consulte [vpn-openvpn-setup.md](docs/vpn-openvpn-setup.md) para detalhes.
+
+```bash
+# WhatsApp (duas contas isoladas via Chromium — chromium instalado na Etapa 7)
+mkdir -p ~/.config/chromium-whatsapp1 ~/.config/chromium-whatsapp2
+# Super+W / Super+Shift+W (binds já vêm no hyprland.lua copiado na Etapa 10)
+# No primeiro uso de cada conta, escaneie o QR code do WhatsApp Web
+```
+
+Consulte [whatsapp-chromium-setup.md](docs/whatsapp-chromium-setup.md) para detalhes.
 
 ---
 
@@ -184,7 +201,23 @@ Copie ou adapte os arquivos de configuração deste repositório para `~/.config
 ~/.config/starship.toml
 ```
 
-> Arquivos de sistema (`/etc/sddm.conf`, `/etc/mkinitcpio.conf`, `/etc/kernel/cmdline` etc.) já foram tratados nas etapas 3 e 5. O webcam Intel IPU6/OV02C10 e o parâmetro de kernel para brilho da tela (`i915.enable_dpcd_backlight`) só se aplicam a esse hardware específico — veja [webcam-setup.md](docs/webcam-setup.md) e [brightness-setup.md](docs/brightness-setup.md).
+> Arquivos de sistema (`/etc/sddm.conf`, `/etc/mkinitcpio.conf`, `/etc/kernel/cmdline` etc.) já foram tratados nas etapas 3 e 5. O webcam Intel IPU6/OV02C10 só se aplica a esse hardware específico — veja [webcam-setup.md](docs/webcam-setup.md). O brilho da tela tem etapa própria a seguir.
+
+---
+
+## Etapa 11 — Brilho da tela (hardware específico — Samsung 960XFH)
+
+> Necessário apenas neste modelo de notebook (painel eDP com controle de brilho via DPCD/AUX). Se `Fn+F2`/`Fn+F3` já mudarem o brilho fisicamente depois da Etapa 10, pule esta etapa.
+
+Se o percentual mudar no `brightnessctl -l` e no indicador da Waybar, mas a tela não responder fisicamente, adicione o parâmetro de kernel que força a interface DPCD proprietária da Intel:
+
+```bash
+sudo sed -i 's/$/ i915.enable_dpcd_backlight=3/' /etc/kernel/cmdline
+sudo mkinitcpio -P
+sudo reboot
+```
+
+Consulte [brightness-setup.md](docs/brightness-setup.md) para o diagnóstico completo (como descartar GPU híbrida/driver Samsung como causa) e os valores intermediários testados antes de chegar em `3`.
 
 ---
 

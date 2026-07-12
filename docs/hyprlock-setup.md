@@ -100,7 +100,7 @@ input-field {
 
 | Elemento | Descrição |
 |---|---|
-| Fundo | Cor sólida `#24273a` (Catppuccin base) |
+| Fundo | Cor sólida `#181926` (Catppuccin crust) |
 | Hora | Fonte 96pt, atualizada a cada segundo |
 | Data | Formato pt-BR (`segunda-feira, 22 de junho de 2025`), atualizada a cada minuto |
 | Campo de senha | Bordas arredondadas, feedback visual de erro (vermelho) e Caps Lock (laranja) |
@@ -111,7 +111,7 @@ input-field {
 
 | Elemento | Cor |
 |---|---|
-| Fundo | `#24273a` (base) |
+| Fundo | `#181926` (crust) |
 | Hora | `#cad3f5` (text) |
 | Data | `#b7bdf8` (lavender) |
 | Borda do input | `#494d64` (surface1) |
